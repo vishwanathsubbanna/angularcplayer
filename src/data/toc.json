@@ -1,0 +1,58 @@
+{
+    "toc":[
+        {   "title":"Introduction",
+            "desc":"This topic will provide brief introduction to Angular JS",
+            "topiccode":"t001",
+            "videoURL":""
+        },
+        {
+            "title":"Typescript",
+            "desc":"TypeScript is an open-source programming language developed and maintained by Microsoft.",
+            "topiccode":"t002",
+            "videoURL":""
+        },
+        {
+            "title":"Components",
+            "desc":"A component controls a patch of screen called a view.",
+            "topiccode":"t003",
+            "videoURL":""
+        },
+        {
+            "title":"Expressions",
+            "desc":"This topic will provide brief Expressions",
+            "topiccode":"t004",
+            "videoURL":""
+
+        },
+        {
+            "title":"Directives",
+            "desc":"This topic will provide brief Directives",
+            "topiccode":"t005",
+            "videoURL":""
+        },
+        {
+            "title":"Data binding",
+            "desc":"This topic will provide brief Data binding",
+            "topiccode":"t006",
+            "videoURL":""
+        },
+        {
+            "title":"Adoption in Web App development",
+            "desc":"This topic will provide brief Adoption in Web App development",
+            "topiccode":"t007",
+            "videoURL":""
+        },
+        {
+            "title":"Angular Services",
+            "desc":"This topic will provide brief Angular Services",
+            "topiccode":"t008",
+            "videoURL":""
+        },
+        {
+            "title":"Events and change detection",
+            "desc":"This topic will provide brief Events and change detection",
+            "topiccode":"t009",
+            "videoURL":""
+        }
+    ]
+}

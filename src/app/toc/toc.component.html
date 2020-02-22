@@ -1,0 +1,18 @@
+<h1>TOC</h1>
+
+<div *ngFor="let tocitem of tocfordisplay['toc'];index as i" class="accordion" id="accordionExample">
+    <div  class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" attr.data-target="#{{tocitem.topiccode}}" (click)="onbuttonClick(tocitem)" >
+            {{tocitem.title}} 
+          </button>
+        </h2>
+      </div>
+      <div [id]="tocitem.topiccode" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          {{tocitem.desc}}
+        </div>
+      </div>
+    </div>    
+</div>
