@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import * as toc from '../../data/toc.json'
 
 @Component({
   selector: 'app-contentpage',
@@ -10,13 +10,20 @@ import { ActivatedRoute } from '@angular/router';
 export class ContentpageComponent implements OnInit {
   @Input('topiccode') topiccode:string
 
-  pagetitle:string
-  pagedesc:string
+  pagetitle:string=""
+  pagedesc:string=""
   constructor(private myactiveroute:ActivatedRoute) 
   { 
     myactiveroute.params.subscribe(params=>{
-      this.pagetitle=params.title
-      this.pagedesc=params.desc
+      
+      for(let topic of toc.toc)
+      {        
+          if (topic.topiccode==params.topiccode)
+          {
+            this.pagetitle=topic.title
+            this.pagedesc=topic.desc
+          }
+      }            
     })
   }
 

@@ -14,7 +14,7 @@ import { ReferenceComponent } from './reference/reference.component';
 import { ToctargetDirective } from './toctarget.directive';
 import {RouterModule,Routes} from '@angular/router'
 
-const route:Routes=[{path:"content/:title/:desc",component:ContentpageComponent}]
+const route:Routes=[{path:"content/:topiccode",component:ContentpageComponent,children:[{path:"",component:ReferenceComponent},{path:"trans",component:TranscriptComponent},{path:"review",component:ReviewComponent},{path:"qa",component:QaComponent},{path:"ref",component:ReferenceComponent},{path:"notes",component:NotesComponent}]}]
 
 @NgModule({
   declarations: [

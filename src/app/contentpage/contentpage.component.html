@@ -2,13 +2,7 @@
     <div class="row">
         <td class="col">
             <div class="card" >
-                <iframe height="315"
-                        src="">
-                </iframe>
-                <div class="card-body">
-                  <h5 class="card-title">{{pagetitle}}</h5>
-                  <p class="card-text">{{pagedesc}}</p>                  
-                </div>
+                <app-video [page-title]="pagetitle" [page-desc]="pagedesc" content-video-src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"></app-video>
               </div>
         </td>
     </div>
@@ -16,21 +10,22 @@
         <td class="col">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">Reference Materials</a>
+                  <a class="nav-link " routerLink="ref" routerLinkActive="active">Reference Materials</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Notes</a>
+                  <a class="nav-link" routerLink="notes" routerLinkActive="active">Notes</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Q/A</a>
+                  <a class="nav-link" routerLink="qa" routerLinkActive="active">Q/A</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#" >Transcript</a>
+                  <a class="nav-link" routerLink="trans" routerLinkActive="active">Transcript</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" >Review</a>
+                    <a class="nav-link" routerLink="review" routerLinkActive="active">Review</a>
                   </li>
               </ul>
         </td>
     </div>
+    <router-outlet></router-outlet>
 </div>    

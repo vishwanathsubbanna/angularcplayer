@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reference',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReferenceComponent implements OnInit {
 
-  constructor() { }
+  topiccode:string;
+  constructor(private activatedRoute:ActivatedRoute) 
+  {
+    activatedRoute.parent.params.subscribe(params=>{
+      this.topiccode=params.topiccode;
+    })
+  }
+
 
   ngOnInit() {
   }
