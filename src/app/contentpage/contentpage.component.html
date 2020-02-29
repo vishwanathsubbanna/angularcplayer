@@ -2,13 +2,8 @@
     <div class="row">
         <td class="col">
             <div class="card" >
-<<<<<<< HEAD
-                <iframe height="315"
-                        src="">
-                </iframe>
-                <div class="card-body">
-                  <h5 class="card-title">{{pagetitle}}</h5>
-                  <p class="card-text">{{pagedesc}}</p>    
+              <app-video [page-title]="pagetitle" [page-desc]="pagedesc" content-video-src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"></app-video>
+                <div class="card-body"> 
                   <span class="card-text" *ngFor="let i of maxrating">
                     <!-- <div *ngIf="isfilled(i);then coloredstar else blankstar"></div>
                     <ng-template #coloredstar><span class=" fa fa-star checked"></span></ng-template>
@@ -16,11 +11,7 @@
                     <span *ShowFilledRating="isfilled(i)" class=" fa fa-star checked"></span>
                     <span *ShowFilledRating="!isfilled(i)" class=" fa fa-star"></span>
                   </span>                        
-                </div>
-                
-=======
-                <app-video [page-title]="pagetitle" [page-desc]="pagedesc" content-video-src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"></app-video>
->>>>>>> 71647d9cdaf94f67ecfdf1a1783ae5e96bdafaf8
+                </div>                            
               </div>
         </td>
     </div>

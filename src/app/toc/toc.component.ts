@@ -18,11 +18,7 @@ export class TocComponent implements OnInit,OnChanges {
 
   onbuttonClick(data)
   {
-<<<<<<< HEAD
-    this.myrouter.navigate(['/content',data.title,data.desc,data.topiccode])
-=======
     this.myrouter.navigate(['/content',data.topiccode])
->>>>>>> 71647d9cdaf94f67ecfdf1a1783ae5e96bdafaf8
     console.log("button Clicked")
   }
 

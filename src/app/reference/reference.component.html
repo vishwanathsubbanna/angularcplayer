@@ -1,1 +1,4 @@
-<p>reference works! for TOPIC CODE: {{topiccode}}</p>
+<!-- <p>reference works! for TOPIC CODE: {{topiccode}}</p> -->
+<div *ngFor="let i of referencelink">
+<a [href]="i" class="badge badge-primary" target="_blank">{{i}}</a>
+</div>
