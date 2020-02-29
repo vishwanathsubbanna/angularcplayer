@@ -7,8 +7,16 @@
                 </iframe>
                 <div class="card-body">
                   <h5 class="card-title">{{pagetitle}}</h5>
-                  <p class="card-text">{{pagedesc}}</p>                  
+                  <p class="card-text">{{pagedesc}}</p>    
+                  <span class="card-text" *ngFor="let i of maxrating">
+                    <!-- <div *ngIf="isfilled(i);then coloredstar else blankstar"></div>
+                    <ng-template #coloredstar><span class=" fa fa-star checked"></span></ng-template>
+                    <ng-template #blankstar><span class= "fa fa-star"></span></ng-template> -->
+                    <span *ShowFilledRating="isfilled(i)" class=" fa fa-star checked"></span>
+                    <span *ShowFilledRating="!isfilled(i)" class=" fa fa-star"></span>
+                  </span>                        
                 </div>
+                
               </div>
         </td>
     </div>

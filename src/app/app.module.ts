@@ -12,9 +12,10 @@ import { NotesComponent } from './notes/notes.component';
 import { QaComponent } from './qa/qa.component';
 import { ReferenceComponent } from './reference/reference.component';
 import { ToctargetDirective } from './toctarget.directive';
-import {RouterModule,Routes} from '@angular/router'
+import {RouterModule,Routes} from '@angular/router';
+import { ShowFilledRatingDirective } from './show-filled-rating.directive'
 
-const route:Routes=[{path:"content/:title/:desc",component:ContentpageComponent}]
+const route:Routes=[{path:"content/:title/:desc/:topiccode",component:ContentpageComponent}]
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ const route:Routes=[{path:"content/:title/:desc",component:ContentpageComponent}
     NotesComponent,
     QaComponent,
     ReferenceComponent,
-    ToctargetDirective
+    ToctargetDirective,
+    ShowFilledRatingDirective
   ],
   imports: [
     BrowserModule,
