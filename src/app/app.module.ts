@@ -15,7 +15,11 @@ import { ToctargetDirective } from './toctarget.directive';
 import {RouterModule,Routes} from '@angular/router';
 import { ShowFilledRatingDirective } from './show-filled-rating.directive'
 
+<<<<<<< HEAD
 const route:Routes=[{path:"content/:title/:desc/:topiccode",component:ContentpageComponent}]
+=======
+const route:Routes=[{path:"content/:topiccode",component:ContentpageComponent,children:[{path:"",component:ReferenceComponent},{path:"trans",component:TranscriptComponent},{path:"review",component:ReviewComponent},{path:"qa",component:QaComponent},{path:"ref",component:ReferenceComponent},{path:"notes",component:NotesComponent}]}]
+>>>>>>> 71647d9cdaf94f67ecfdf1a1783ae5e96bdafaf8
 
 @NgModule({
   declarations: [
