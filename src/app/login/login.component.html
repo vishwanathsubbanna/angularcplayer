@@ -1,0 +1,22 @@
+<div class="table">
+    <div class="row">
+        <div class="col ">
+            <img src="https://www.yourtrainingedge.com/wp-content/uploads/2009/04/AdobeStock_77389003_wmall.gif" width=700 height=500>
+        </div>
+        <div class="col">
+                <form>
+                    <h1>LOGIN SCREEN</h1>
+                   <p>Username</p><input type="text" class="form-control" [(ngModel)]="uname" name="username">
+                    <br>
+                    <p>Password</p>
+                      <input type="password" class="form-control"  [(ngModel)]="pwd" name="password">
+                    <br>
+                    <button class="btn btn-primary" (click)="onLoginClick()">Sign In</button>
+                    <br>
+                    <br>
+                    <div class="alert alert-primary">{{userMessage}}</div>
+                </form>
+            </div>
+        </div>
+    </div>
+

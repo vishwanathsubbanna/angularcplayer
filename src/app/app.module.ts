@@ -11,11 +11,56 @@ import { ReviewComponent } from './review/review.component';
 import { NotesComponent } from './notes/notes.component';
 import { QaComponent } from './qa/qa.component';
 import { ReferenceComponent } from './reference/reference.component';
-import { ToctargetDirective } from './toctarget.directive';
 import {RouterModule,Routes} from '@angular/router';
-import { ShowFilledRatingDirective } from './show-filled-rating.directive'
 
-const route:Routes=[{path:"content/:topiccode",component:ContentpageComponent,children:[{path:"",component:ReferenceComponent},{path:"trans",component:TranscriptComponent},{path:"review",component:ReviewComponent},{path:"qa",component:QaComponent},{path:"ref",component:ReferenceComponent},{path:"notes",component:NotesComponent}]}]
+import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CourseplayerComponent } from './courseplayer/courseplayer.component'
+import {FormsModule} from "@angular/forms"
+
+const route:Routes=[
+  {
+    path:"login",
+    component:LoginComponent
+  },
+  {
+    path:"dashboard",
+    component:DashboardComponent
+  },
+  {
+    path:"courseplayer/:coursecode",
+    component:CourseplayerComponent,
+    children:
+    [
+      {
+        path:"content/:topiccode",
+        component:ContentpageComponent,
+        children:
+        [
+          {
+            path:"",component:ReferenceComponent
+          },
+          {
+            path:"trans",component:TranscriptComponent
+          },
+          {
+            path:"review",component:ReviewComponent
+          },
+          {
+            path:"qa",component:QaComponent
+          },
+          {
+            path:"ref",component:ReferenceComponent
+          },
+          {
+            path:"notes",component:NotesComponent
+          }
+        ]
+      }
+    ]
+  }  
+]
 
 @NgModule({
   declarations: [
@@ -28,13 +73,16 @@ const route:Routes=[{path:"content/:topiccode",component:ContentpageComponent,ch
     NotesComponent,
     QaComponent,
     ReferenceComponent,
-    ToctargetDirective,
-    ShowFilledRatingDirective
+    LoginComponent,
+    DashboardComponent,
+    CourseplayerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(route)
+    RouterModule.forRoot(route),
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

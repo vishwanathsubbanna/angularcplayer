@@ -8,12 +8,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class QaComponent implements OnInit {
 
-  topiccode:string;
-  constructor(private activatedRoute:ActivatedRoute) 
+  questionAnswer:string;
+  constructor(private myactiveroute:ActivatedRoute) 
   {
-    activatedRoute.parent.params.subscribe(params=>{
-      this.topiccode=params.topiccode;
-    })
+   myactiveroute.parent.params.subscribe(params=>{
+   })
   }
 
 

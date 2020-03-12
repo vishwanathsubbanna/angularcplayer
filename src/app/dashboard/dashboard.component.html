@@ -1,0 +1,15 @@
+
+<div class="table ">
+    <div class="row">
+        <div class="col col-lg-5" *ngFor="let course of courseList">
+            <div  class="card">
+                <img [src]="course.courselogo" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{course.coursetitle}}</h5>
+                  <p class="card-text">{{course.coursedesc}}</p>
+                  <a [routerLink]="coursePlayerRoute+course.coursecode" class="btn btn-primary">Open the Course</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

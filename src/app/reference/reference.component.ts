@@ -1,6 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import * as reflink from '../../data/reference.json'
 
 @Component({
   selector: 'app-reference',
@@ -15,15 +14,6 @@ export class ReferenceComponent implements OnInit {
   {
     activatedRoute.parent.params.subscribe(params=>{
 
-      for(let rlink of reflink.refmaterial)
-      {
-        if(rlink.topiccode==params.topiccode)
-        {
-
-          this.referencelink=rlink.materiallink;
-        }
-      }
-   
       //this.topiccode=params.topiccode;
     })
   }
