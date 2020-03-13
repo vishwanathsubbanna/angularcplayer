@@ -17,9 +17,18 @@ import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CourseplayerComponent } from './courseplayer/courseplayer.component'
-import {FormsModule} from "@angular/forms"
+import {FormsModule} from "@angular/forms";
+import { HomComponent } from './hom/hom.component'
 
 const route:Routes=[
+  {
+    path:"",
+    component:HomComponent
+  },
+  {
+    path:"home",
+    component:HomComponent
+  },
   {
     path:"login",
     component:LoginComponent
@@ -32,34 +41,27 @@ const route:Routes=[
     path:"courseplayer/:coursecode",
     component:CourseplayerComponent,
     children:
-    [
-      {
-        path:"content/:topiccode",
-        component:ContentpageComponent,
-        children:
-        [
+    [      
           {
             path:"",component:ReferenceComponent
           },
           {
-            path:"trans",component:TranscriptComponent
+            path:"trans/:topiccode",component:TranscriptComponent
           },
           {
-            path:"review",component:ReviewComponent
+            path:"review/:topiccode",component:ReviewComponent
           },
           {
-            path:"qa",component:QaComponent
+            path:"qa/:topiccode",component:QaComponent
           },
           {
-            path:"ref",component:ReferenceComponent
+            path:"ref/:topiccode",component:ReferenceComponent
           },
           {
-            path:"notes",component:NotesComponent
+            path:"notes/:topiccode",component:NotesComponent
           }
-        ]
-      }
     ]
-  }  
+  }      
 ]
 
 @NgModule({
@@ -75,7 +77,8 @@ const route:Routes=[
     ReferenceComponent,
     LoginComponent,
     DashboardComponent,
-    CourseplayerComponent
+    CourseplayerComponent,
+    HomComponent
   ],
   imports: [
     BrowserModule,

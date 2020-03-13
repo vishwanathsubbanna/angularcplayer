@@ -1,22 +1,32 @@
-<div class="table">
-    <div class="row">
-        <div class="col ">
-            <img src="https://www.yourtrainingedge.com/wp-content/uploads/2009/04/AdobeStock_77389003_wmall.gif" width=700 height=500>
-        </div>
-        <div class="col">
-                <form>
-                    <h1>LOGIN SCREEN</h1>
-                   <p>Username</p><input type="text" class="form-control" [(ngModel)]="uname" name="username">
-                    <br>
-                    <p>Password</p>
-                      <input type="password" class="form-control"  [(ngModel)]="pwd" name="password">
-                    <br>
-                    <button class="btn btn-primary" (click)="onLoginClick()">Sign In</button>
-                    <br>
-                    <br>
-                    <div class="alert alert-primary">{{userMessage}}</div>
-                </form>
+    <div class="card mb-3" >
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <img src="https://www.yourtrainingedge.com/wp-content/uploads/2009/04/AdobeStock_77389003_wmall.gif" class="card-img" alt="...">
+          </div>
+          <div class="col-md-4">
+            <div class="card-header text-center">
+                <h2>LOGIN SCREEN</h2>
             </div>
+            <div class="card-body" >
+              
+              <form #loginForm=ngForm>                
+                <p>Username</p><input type="text" class="form-control" [(ngModel)]="uname" name="username" required>
+                <br>
+                <p>Password</p>
+                <input type="password" class="form-control"  [(ngModel)]="pwd" name="password" required>
+                <br>
+                <button class="btn btn-primary" (click)="onLoginClick(loginForm)">Sign In</button>
+                <br>
+                <br>
+                <div *ngIf="!loginStatus && loginForm.valid">
+                    <div class="alert alert-primary">{{userMessage}}</div>
+                </div>
+                
+            </form>
+            </div>
+            <div class="card-footer text-muted">
+                <small>Copyright @ SV2Learn Technologies and Consulting LLP</small>
+            </div>
+          </div>
         </div>
-    </div>
-
+      </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, OnChanges, } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import {environment} from '../../environments/environment'
+
 
 @Component({
   selector: 'app-video',
@@ -20,7 +22,9 @@ export class VideoComponent implements OnInit,OnChanges {
   @Input('content-video-src') 
   
   set contentvideo(url:string)
-  {    
+  { 
+    // This line of code will make youtube embeddable from only watching mode   
+    url = url.replace("watch?v=", "embed/");
     this._safeVideoURL=this.sanitizer.bypassSecurityTrustResourceUrl(url);    
   }
 

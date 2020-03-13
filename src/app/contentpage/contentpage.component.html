@@ -1,17 +1,9 @@
+<div *ngIf="topiccode">
 <div class="table table-borderless">
     <div class="row">
         <td class="col">
             <div class="card" >
-              <app-video [page-title]="pagetitle" [page-desc]="pagedesc" [content-video-src]="videoURL"></app-video>
-                <div class="card-body"> 
-                  <span class="card-text" *ngFor="let i of maxrating">
-                    <!-- <div *ngIf="isfilled(i);then coloredstar else blankstar"></div>
-                    <ng-template #coloredstar><span class=" fa fa-star checked"></span></ng-template>
-                    <ng-template #blankstar><span class= "fa fa-star"></span></ng-template> -->
-                    <span  class=" fa fa-star checked"></span>
-                    <span  class=" fa fa-star"></span>
-                  </span>                        
-                </div>                            
+              <app-video [page-title]="pagetitle" [page-desc]="pagedesc" [content-video-src]="videoURL"></app-video>                
               </div>
         </td>
     </div>
@@ -19,22 +11,48 @@
         <td class="col">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link " routerLink="ref" routerLinkActive="active">Reference Materials</a>
-                </li>
+                  <a class="btn btn-primary " data-toggle="collapse" href="#references" >Reference Materials</a>
+                </li>&nbsp;&nbsp;
                 <li class="nav-item">
-                  <a class="nav-link" routerLink="notes" routerLinkActive="active">Notes</a>
-                </li>
+                  <a class="btn btn-secondary" data-toggle="collapse" href="#notes">Notes</a>
+                </li>&nbsp;&nbsp;
                 <li class="nav-item">
-                  <a class="nav-link" routerLink="qa" routerLinkActive="active">Q/A</a>
-                </li>
+                  <a class="btn btn-success" data-toggle="collapse" href="#qa">Q/A</a>
+                </li>&nbsp;&nbsp;
                 <li class="nav-item">
-                  <a class="nav-link" routerLink="trans" routerLinkActive="active">Transcript</a>
-                </li>
+                  <a class="btn btn-info" data-toggle="collapse" href="#trans">Transcript</a>
+                </li>&nbsp;&nbsp;
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="review" routerLinkActive="active">Review</a>
-                  </li>
+                    <a class="btn btn-warning" data-toggle="collapse" href="#review">Review</a>
+                  </li>&nbsp;&nbsp;
               </ul>
+              <div class="collapse" id="references">
+                <div class="card card-body">
+                  <app-reference [topiccode]="topiccode" [ccode]="ccode"></app-reference>
+                </div>
+              </div>
+              <div class="collapse" id="notes">
+                <div class="card card-body">
+                 <app-notes [topiccode]="topiccode" [ccode]="ccode"></app-notes>                 
+                </div>
+              </div>
+              <div class="collapse" id="qa">
+                <div class="card card-body">
+                  <app-qa [topiccode]="topiccode" [ccode]="ccode"></app-qa>
+                </div>
+              </div>
+              <div class="collapse" id="trans">
+                <div class="card card-body">
+                  <app-transcript [topiccode]="topiccode" [ccode]="ccode"></app-transcript>
+                </div>
+              </div>
+              <div class="collapse" id="review">
+                <div class="card card-body">
+                  <app-review [topiccode]="topiccode" [ccode]="ccode"></app-review>
+                </div>
+              </div>
         </td>
     </div>
-    <router-outlet></router-outlet>
+    
 </div>    
+</div>

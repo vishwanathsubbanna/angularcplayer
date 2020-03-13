@@ -1,12 +1,12 @@
 <!-- Image and text -->
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+  <a class="navbar-brand" [href]="homeLink">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"  width="30" height="30" class="d-inline-block align-top" alt="">
     LMS
   </a>
   <ul class="navbar-nav">
     <form class="form-inline">
-      <li class="nav-bar-item" routerLink="login"><button class="btn btn-primary">{{buttonText}}</button></li>
+      <li class="nav-bar-item" routerLink="/login"><button class="btn btn-primary">{{buttonText}}</button></li>
   </form>
   </ul>
 </nav>

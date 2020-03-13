@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, Input, Output,EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http'
+import {environment} from '../../environments/environment'
 
 @Component({
   selector: 'app-toc',
@@ -10,7 +11,7 @@ import {HttpClient} from '@angular/common/http'
 export class TocComponent implements OnInit,OnChanges {
   
   @Input('course-code') ccode:string;
-  @Output() navTopic:EventEmitter<string>=new EventEmitter()
+  @Output() navTopic=new EventEmitter()
 
   tocfordisplay:any=[];
 
@@ -28,14 +29,14 @@ export class TocComponent implements OnInit,OnChanges {
 
   ngOnInit() 
   {
-    this.httpclient.get(`http://192.168.1.4/gettocforcourse?ccode=${this.ccode}`).subscribe(response=>{            
+    this.httpclient.get(`http://${environment.serverIPAddress}/gettocforcourse?ccode=${this.ccode}`).subscribe(response=>{            
       this.tocfordisplay=response["data"][0]      
     })
   }
 
   ngOnChanges()
   {
-    this.httpclient.get(`http://192.168.1.4/gettocforcourse?ccode=${this.ccode}`).subscribe(response=>{            
+    this.httpclient.get(`http://${environment.serverIPAddress}/gettocforcourse?ccode=${this.ccode}`).subscribe(response=>{            
       this.tocfordisplay=response["data"][0]     
     })
   }

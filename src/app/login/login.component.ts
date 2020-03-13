@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import {environment} from '../../environments/environment'
+
 
 @Component({
   selector: 'app-login',
@@ -27,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.userMessage="Invalid Username or Password"
     
     const httpHeaderOptions:object={headers:new HttpHeaders({'Content-Type':'application/x-www-form-urlencoded'})}        
-    this.httpClient.post(`http://192.168.1.4/auth`,`uname=${this.uname}&pwd=${this.pwd}`,httpHeaderOptions).subscribe(data=>
+    this.httpClient.post(`http://${environment.serverIPAddress}/auth`,`uname=${this.uname}&pwd=${this.pwd}`,httpHeaderOptions).subscribe(data=>
     {
       console.log(data); 
       if(data["result"]=="success")

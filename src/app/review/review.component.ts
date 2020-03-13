@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {environment} from '../../environments/environment'
 
 @Component({
   selector: 'app-review',
@@ -8,12 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ReviewComponent implements OnInit {
 
-  topiccode:string;
+  @Input() topiccode:string
+  @Input() ccode:string
   constructor(private activatedRoute:ActivatedRoute) 
   {
-    activatedRoute.parent.params.subscribe(params=>{
-      this.topiccode=params.topiccode;
-    })
+
   }
 
   ngOnInit() {

@@ -13,7 +13,7 @@ export class AppComponent
   coursecode:string
   title = 'coursePlayer';
   buttonText="LOGIN"
-
+  homeLink="/home"
   onclick(coursename)
   {    
     if (coursename=="angular")
@@ -27,6 +27,8 @@ export class AppComponent
     if ($event.constructor.name==DashboardComponent.name || $event.constructor.name==CourseplayerComponent.name)
     {
       this.buttonText="LOGOUT"
+      this.homeLink="/dashboard"
+      console.log("Activate:"+$event.constructor.name)
     }
   }
 
@@ -35,6 +37,8 @@ export class AppComponent
     if ($event.constructor.name==DashboardComponent.name || $event.constructor.name==CourseplayerComponent.name )
     {
       this.buttonText="LOGIN"
+      this.homeLink="/home"
+      console.log("DeActivate:"+$event.constructor.name)
     }
   }
 }

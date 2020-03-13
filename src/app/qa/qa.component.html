@@ -1,15 +1,15 @@
-<div *ngFor="let text of questionAnswer['quesAns']">
-    <div>{{text.quesText}}</div>
-        <ul style="list-style-type: none;">
-            <li>{{text.option1}}</li>
-            <li>{{text.option2}}</li>
-            <li>{{text.option3}}</li>
-            <li>{{text.option4}}</li>
-        </ul>
-     
-            <input type="text" class="form-controls">
-            <button type="button" class="btn btn-primary">Save</button>
-       
-</div>
-<br>
-<button type="button" class="btn btn-danger">Total Score</button>
+<div class="card" *ngFor="let qitem of qalist">
+    <div class="card-header">
+      <b>Q: </b>{{qitem.ques}}
+    </div>
+    <div class="card-body">
+      
+        <p>{{qitem.answer}}</p>
+            <button type="button" class="btn btn-info">
+                Asked by <span class="badge badge-light">{{qitem.askedBy}}</span>
+            </button> &nbsp;&nbsp;
+            <button type="button" class="btn btn-warning">
+                Answered by <span class="badge badge-light">{{qitem.answeredBy}}</span>
+            </button>      
+    </div>
+  </div>

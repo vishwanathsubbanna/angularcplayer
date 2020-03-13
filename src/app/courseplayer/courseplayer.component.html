@@ -4,7 +4,7 @@
             <app-toc [course-code]="ccode" (navTopic)="navigatetocontent($event)"></app-toc>
         </div>
         <div class="col">
-            <router-outlet></router-outlet>
+            <app-contentpage [topiccode]="tcode"></app-contentpage>
         </div>
     </div>
 </div>

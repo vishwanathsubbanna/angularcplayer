@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import {environment} from "../../environments/environment"
 
 @Component({
   selector: 'app-courseplayer',
@@ -9,9 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CourseplayerComponent implements OnInit,OnChanges{
 
   ccode:string
+  tcode:string
   constructor(private activatedRoute:ActivatedRoute,private myrouter:Router) 
   {
-    this.myrouter.routeReuseStrategy.shouldReuseRoute = () => false;
+   
     this.activatedRoute.params.subscribe(param=>{
       this.ccode=param.coursecode
     })
@@ -19,16 +21,20 @@ export class CourseplayerComponent implements OnInit,OnChanges{
 
   navigatetocontent($event)
   {
-    //console.log($event)
-    this.myrouter.navigate(["content",$event.topiccode],{relativeTo:this.activatedRoute})
+    console.log($event)
+    this.tcode=$event.topiccode
+    console.log(this.tcode +"Course Player Page")
+    //this.myrouter.navigate(["content",$event.topiccode],{relativeTo:this.activatedRoute})
   }
 
 
   ngOnInit() {
+
   }
 
   ngOnChanges()
   {
+
   }
 
 }
