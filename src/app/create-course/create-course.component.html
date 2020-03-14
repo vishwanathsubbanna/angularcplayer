@@ -3,35 +3,42 @@
       COURSE CREATION PAGE   
     </div>
     <div class="card-body">
-        <form>
+        <form #courseForm=ngForm>
             <div class="form-group row">
               <label class="col-sm-4 col-form-label">Course code</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" [(ngModel)]="ccode" name="coursecode">
+                <input type="text" class="form-control" [(ngModel)]="ccode" name="coursecode" required>
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-4 col-form-label">Course title</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" [(ngModel)]="ctitle" name="coursetitle">
+                <input type="text" class="form-control" [(ngModel)]="ctitle" name="coursetitle" required>
               </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Course desc</label>
                 <div class="col-sm-8">                  
-                  <textarea class="form-control" [(ngModel)]="cdesc" name="coursedesc"></textarea>
+                  <textarea class="form-control" [(ngModel)]="cdesc" name="coursedesc" required></textarea>
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Course logo - URL</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" [(ngModel)]="clogoURL" name="courselogo">
+                  <input type="text" class="form-control" [(ngModel)]="clogoURL" name="courselogo" required>
                 </div>
               </div>
           </form>      
     </div>
     <div class="card-footer">
-        <button class="btn btn-primary" (click)="addTopic()">Add Topic</button>
+        <button class="btn btn-primary" (click)="addTopic(courseForm)">Add Topic</button>
+        <br>
+        <br>
+        <div *ngIf="!canCreateTopic">
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Hi</strong> All fields for course are mandatory. Please fill to create topic           
+          </div>
+        </div>
     </div>
   </div>
   <div *ngIf="topicCreateStarted">
@@ -44,25 +51,25 @@
             <div class="form-group row">
               <label class="col-sm-4 col-form-label">Topic code</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" name="topiccode" ngModel>
+                <input type="text" class="form-control" name="topiccode" ngModel required>
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-4 col-form-label">Topic title</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control"  name="topictitle" ngModel>
+                <input type="text" class="form-control"  name="topictitle" ngModel required>
               </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Topic desc</label>
                 <div class="col-sm-8">                  
-                  <textarea class="form-control"  name="topicdesc" ngModel></textarea>
+                  <textarea class="form-control"  name="topicdesc" ngModel required></textarea>
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Topic Type</label>
                 <div class="col-sm-8">
-                  <select  name="topictype" ngModel>
+                  <select  name="topictype" ngModel required>
                       <option value="Video">Video</option>
                       <option value="Audio">Audio</option>
                       <option value="HTML">HTML</option>
@@ -72,7 +79,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Topic content URL</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control"  name="topiccontentURL" ngModel>
+                    <input type="text" class="form-control"  name="topiccontentURL" ngModel required>
                 </div>
               </div>
               <div class="form-group row">                
@@ -82,7 +89,12 @@
             </div>
           </form>      
     </div>
-    <div class="card-footer">        
+    <div class="card-footer">      
+        <div *ngIf="!canCreateTopicContent">
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Hi</strong> All fields for topic are mandatory. Please fill the same          
+          </div>
+        </div>  
     </div>
   </div>
 </div>
@@ -105,7 +117,7 @@
     </thead>
 
     <tbody>
-        <tr *ngFor="let topic of topicList">
+        <tr *ngFor="let topic of topicList; index as i">
             <td>
                 {{topic.topiccode}}
             </td>
@@ -119,17 +131,26 @@
                 {{topic.typesofContent}}
                 <ul>
                     <li>
-                        {{topic.videoUrl}}
+                        {{videoemoji}}{{topicContents[i].videoUrl}}
                     </li>
                     <li>
-                        {{topic.audioUrl}}
+                       {{audioemoji}}{{topicContents[i].audioUrl}}
                     </li>
                     <li>
-                        {{topic.htmlUrl}}
+                        {{htmlemoji}}{{topicContents[i].htmlUrl}}
                     </li>
                 </ul>
             </td>
         </tr>
     </tbody>
+    <tfoot>
+      <tr>
+        <td>
+          <div >
+            <button class="btn btn-primary" (click)="saveCourse()">Save to DB</button>
+        </div>
+        </td>
+      </tr>
+    </tfoot>
 </table>
 
