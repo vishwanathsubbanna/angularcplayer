@@ -18,7 +18,9 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CourseplayerComponent } from './courseplayer/courseplayer.component'
 import {FormsModule} from "@angular/forms";
-import { HomComponent } from './hom/hom.component'
+import { HomComponent } from './hom/hom.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { CreateCourseComponent } from './create-course/create-course.component'
 
 const route:Routes=[
   {
@@ -33,6 +35,16 @@ const route:Routes=[
     path:"login",
     component:LoginComponent
   },
+  {
+    path:"admindashboard",
+    component:AdmindashboardComponent,
+    children:
+    [      
+      {
+        path:"createcourse",component:CreateCourseComponent
+      }
+    ]      
+  },  
   {
     path:"dashboard",
     component:DashboardComponent
@@ -78,7 +90,9 @@ const route:Routes=[
     LoginComponent,
     DashboardComponent,
     CourseplayerComponent,
-    HomComponent
+    HomComponent,
+    AdmindashboardComponent,
+    CreateCourseComponent
   ],
   imports: [
     BrowserModule,

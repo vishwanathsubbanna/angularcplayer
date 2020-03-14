@@ -36,7 +36,10 @@ export class LoginComponent implements OnInit {
       {
         this.loginStatus=true;
         this.userMessage="Login Successful..."
-        this.route.navigate(['/dashboard']);
+        if(data["usertype"]=="admin")
+          this.route.navigate(['/admindashboard']);
+        else
+          this.route.navigate(['/dashboard']);
       }        
       else
       {

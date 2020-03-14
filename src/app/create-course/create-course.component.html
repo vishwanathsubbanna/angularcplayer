@@ -1,0 +1,135 @@
+  <div class="card">
+    <div class="card-header">
+      COURSE CREATION PAGE   
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Course code</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" [(ngModel)]="ccode" name="coursecode">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Course title</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" [(ngModel)]="ctitle" name="coursetitle">
+              </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Course desc</label>
+                <div class="col-sm-8">                  
+                  <textarea class="form-control" [(ngModel)]="cdesc" name="coursedesc"></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Course logo - URL</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" [(ngModel)]="clogoURL" name="courselogo">
+                </div>
+              </div>
+          </form>      
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-primary" (click)="addTopic()">Add Topic</button>
+    </div>
+  </div>
+  <div *ngIf="topicCreateStarted">
+  <div class="card">
+    <div class="card-header">
+        TOPIC INFORMATION       
+    </div>
+    <div class="card-body">
+        <form #topicForm=ngForm>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Topic code</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" name="topiccode" ngModel>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Topic title</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control"  name="topictitle" ngModel>
+              </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Topic desc</label>
+                <div class="col-sm-8">                  
+                  <textarea class="form-control"  name="topicdesc" ngModel></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Topic Type</label>
+                <div class="col-sm-8">
+                  <select  name="topictype" ngModel>
+                      <option value="Video">Video</option>
+                      <option value="Audio">Audio</option>
+                      <option value="HTML">HTML</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Topic content URL</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control"  name="topiccontentURL" ngModel>
+                </div>
+              </div>
+              <div class="form-group row">                
+                <div class="col-sm-8">
+                    <button class="btn btn-primary" (click)="saveTopic(topicForm)">Save Topic</button>
+                </div>
+            </div>
+          </form>      
+    </div>
+    <div class="card-footer">        
+    </div>
+  </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Topic Code
+            </th>
+            <th>
+                Topic Title
+            </th>
+            <th>
+                Topic Desc
+            </th>
+            <th>
+                Topic Type and Topic URL
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let topic of topicList">
+            <td>
+                {{topic.topiccode}}
+            </td>
+            <td>
+                {{topic.title}}
+            </td>
+            <td>
+                {{topic.desc}}
+            </td>
+            <td>
+                {{topic.typesofContent}}
+                <ul>
+                    <li>
+                        {{topic.videoUrl}}
+                    </li>
+                    <li>
+                        {{topic.audioUrl}}
+                    </li>
+                    <li>
+                        {{topic.htmlUrl}}
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

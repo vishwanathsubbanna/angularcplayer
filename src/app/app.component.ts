@@ -2,6 +2,7 @@ import { Component,OnChanges, Input } from '@angular/core';
 import { $ } from 'protractor';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CourseplayerComponent } from './courseplayer/courseplayer.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 
 @Component({
   selector: 'app-root',
@@ -24,17 +25,20 @@ export class AppComponent
 
   onActivate($event)
   {
-    if ($event.constructor.name==DashboardComponent.name || $event.constructor.name==CourseplayerComponent.name)
+    if ($event.constructor.name==DashboardComponent.name || $event.constructor.name==CourseplayerComponent.name || $event.constructor.name==AdmindashboardComponent.name)
     {
       this.buttonText="LOGOUT"
-      this.homeLink="/dashboard"
+      if($event.constructor.name==DashboardComponent.name || $event.constructor.name==CourseplayerComponent.name)
+        this.homeLink="/dashboard"
+      else
+        this.homeLink="/admindashboard"
       console.log("Activate:"+$event.constructor.name)
     }
   }
 
   onDeactivated($event)
   {
-    if ($event.constructor.name==DashboardComponent.name || $event.constructor.name==CourseplayerComponent.name )
+    if ($event.constructor.name==DashboardComponent.name || $event.constructor.name==CourseplayerComponent.name || $event.constructor.name==AdmindashboardComponent.name )
     {
       this.buttonText="LOGIN"
       this.homeLink="/home"
